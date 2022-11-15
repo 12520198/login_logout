@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>add books</title>
+    </head>
+    <body>
+        <form action="create_books" method="post">
+            {% csrf_token %}
+            {% if single_data %}
+                book id:- <input type="number" name="bid" value="{{single_data.id}}"><br><br>
+            {% endif %}
+            book name:- <input type="text" name="bname" value="{{single_data.name}}" required><br><br>
+            book code:- <input type="number" name=bcode value="{{single_data.book_code}}" required><br><br>  
+            book auther:- <input type="text" name="bauther" value="{{single_data.auther}}" required><br><br>
+            <input type="submit" name="submit">
+            &nbsp;&nbsp;&nbsp;<a href="{% url 'show_books' %}">show all books</a>
+        </form>
+    </body>
+</html>
+
+<!-- line no 13 try required (type error) -->
